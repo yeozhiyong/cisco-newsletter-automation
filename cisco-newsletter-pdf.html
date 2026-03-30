@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cisco Newsletter Automation - PDF Version</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @media print {
+            body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .no-print { display: none; }
+            .page-break { page-break-after: always; }
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: white;
+            color: #333;
+        }
+        h1 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        h2 {
+            color: #764ba2;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #667eea;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .step-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+        }
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .print-button:hover {
+            opacity: 0.9;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #eee;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    
+    <h1>📰 Cisco Newsletter Automation</h1>
+    <p style="text-align: center; font-size: 1.2em; color: #666; margin-bottom: 40px;">Weekly Workflow That Saves 3-4 Hours</p>
+    
+    <div class="highlight-box">
+        <strong>The Big Picture:</strong> Automate the entire newsletter creation process so you spend 10 minutes reviewing instead of 3-4 hours writing.
+    </div>
+    
+    <h2>How It Works</h2>
+    
+    <h3>🕕 Sunday Evening - Automation Runs</h3>
+    
+    <div class="step-box">
+        <span class="step-number">1</span>
+        <strong>Trigger (6:00 PM)</strong><br>
+        A timer wakes up the system automatically every Sunday.
+    </div>
+    
+    <div class="step-box">
+        <span class="step-number">2</span>
+        <strong>Tavily Search (6:05 PM)</strong><br>
+        Searches the internet for latest Cisco news about Security, Networking, and AI.
+    </div>
+    
+    <div class="step-box">
+        <span class="step-number">3</span>
+        <strong>Cupid Writes (6:10 PM)</strong><br>
+        AI creates 2-3 executive summaries, each 10-15 sentences long.
+    </div>
+    
+    <div class="step-box">
+        <span class="step-number">4</span>
+        <strong>Save to Notion (6:15 PM)</strong><br>
+        Stores the newsletter in an organized database for easy reference.
+    </div>
+    
+    <div class="step-box">
+        <span class="step-number">5</span>
+        <strong>Slack Notification (6:15 PM)</strong><br>
+        Sends you a message: "Draft is ready for review!"
+    </div>
+    
+    <h3>🕘 Monday Morning - You Take Over</h3>
+    
+    <div class="step-box">
+        <span class="step-number">6</span>
+        <strong>You Review (8:00 AM)</strong><br>
+        Read the draft and make minor edits if needed (takes ~10 minutes).
+    </div>
+    
+    <div class="step-box">
+        <span class="step-number">7</span>
+        <strong>Distribute (9:00 AM)</strong><br>
+        Send the final newsletter to the Distribution Sales Team.
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>The Tools We Use</h2>
+    
+    <table>
+        <tr>
+            <th>Tool</th>
+            <th>What It Does</th>
+            <th>Simple Analogy</th>
+        </tr>
+        <tr>
+            <td><strong>Tavily</strong></td>
+            <td>Finds Cisco news online</td>
+            <td>Research assistant who reads tech news 24/7</td>
+        </tr>
+        <tr>
+            <td><strong>Cupid (AI)</strong></td>
+            <td>Writes the content</td>
+            <td>Technical writer who knows Cisco inside-out</td>
+        </tr>
+        <tr>
+            <td><strong>Notion</strong></td>
+            <td>Stores newsletters</td>
+            <td>Filing cabinet that never loses anything</td>
+        </tr>
+        <tr>
+            <td><strong>Slack</strong></td>
+            <td>Sends notifications</td>
+            <td>Secretary who taps you when work is done</td>
+        </tr>
+        <tr>
+            <td><strong>Cron Job</strong></td>
+            <td>Runs on schedule</td>
+            <td>Alarm clock for your computer</td>
+        </tr>
+    </table>
+    
+    <h2>Benefits</h2>
+    
+    <table>
+        <tr>
+            <th>Before Automation</th>
+            <th>After Automation</th>
+        </tr>
+        <tr>
+            <td>Spend 3-4 hours writing</td>
+            <td>Spend 10 minutes reviewing</td>
+        </tr>
+        <tr>
+            <td>Might miss important news</td>
+            <td>Never miss key updates</td>
+        </tr>
+        <tr>
+            <td>Inconsistent format</td>
+            <td>Professional every time</td>
+        </tr>
+        <tr>
+            <td>Manual tracking</td>
+            <td>Automatic archive</td>
+        </tr>
+        <tr>
+            <td>Easy to forget</td>
+            <td>Runs automatically</td>
+        </tr>
+    </table>
+    
+    <div class="page-break"></div>
+    
+    <h2>What You Do vs What Automation Does</h2>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 25px 0;">
+        <div class="highlight-box" style="border-left-color: #764ba2;">
+            <h3 style="margin-top: 0; color: #764ba2;">🤖 Automation Handles:</h3>
+            <ul>
+                <li>Finding the news</li>
+                <li>Writing first draft</li>
+                <li>Saving to database</li>
+                <li>Sending notification</li>
+            </ul>
+        </div>
+        <div class="highlight-box">
+            <h3 style="margin-top: 0; color: #667eea;">👤 You Handle:</h3>
+            <ul>
+                <li>Quick review (10 min)</li>
+                <li>Minor edits if needed</li>
+                <li>Final distribution</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h2>Timeline</h2>
+    
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>What Happens</th>
+        </tr>
+        <tr>
+            <td>Sunday 6:00 PM</td>
+            <td>Automation starts</td>
+        </tr>
+        <tr>
+            <td>Sunday 6:05 PM</td>
+            <td>Research complete</td>
+        </tr>
+        <tr>
+            <td>Sunday 6:10 PM</td>
+            <td>Draft written</td>
+        </tr>
+        <tr>
+            <td>Sunday 6:15 PM</td>
+            <td>Saved & notification sent</td>
+        </tr>
+        <tr>
+            <td>Monday 8:00 AM</td>
+            <td>You review</td>
+        </tr>
+        <tr>
+            <td>Monday 9:00 AM</td>
+            <td>You distribute</td>
+        </tr>
+    </table>
+    
+    <h2>Security & Control</h2>
+    
+    <ul>
+        <li><strong>Data stays in your accounts</strong> — All information remains in your Tavily, Notion, and Slack accounts</li>
+        <li><strong>You control all content</strong> — Review and edit before anything is sent</li>
+        <li><strong>Can pause anytime</strong> — Stop the automation whenever you want</li>
+        <li><strong>Nothing shared externally</strong> — No sensitive data leaves your systems</li>
+    </ul>
+    
+    <h2>Frequently Asked Questions</h2>
+    
+    <p><strong>Q: Do I need technical skills to use this?</strong><br>
+    A: No! The automation runs in the background. You just review and distribute.</p>
+    
+    <p><strong>Q: What if I want to change something?</strong><br>
+    A: You have full control. Edit the draft however you like before sending.</p>
+    
+    <p><strong>Q: Can I pause the automation?</strong><br>
+    A: Yes, anytime. Just let Cupid know.</p>
+    
+    <p><strong>Q: What if there's no big news one week?</strong><br>
+    A: The system will find 2-3 relevant topics, or you can skip that week.</p>
+    
+    <div class="footer">
+        <p><strong>Cisco Newsletter Automation</strong></p>
+        <p>Created: March 30, 2026 | For: Cisco Distribution Sales Team</p>
+        <p style="margin-top: 10px; font-size: 0.8em;">To save as PDF: Click the "Print / Save as PDF" button above</p>
+    </div>
+</body>
+</html>

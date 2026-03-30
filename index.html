@@ -4,219 +4,564 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cisco Newsletter Automation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cisco+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --cisco-blue: #00bceb;
+            --cisco-dark-blue: #049fd9;
+            --cisco-navy: #1e4471;
+            --cisco-dark: #0d2744;
+            --cisco-gray: #58585b;
+            --cisco-light-gray: #f5f5f5;
+            --cisco-border: #e0e0e0;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
         }
-        .container {
-            max-width: 900px;
+        
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--cisco-border);
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 50px;
-            font-size: 1.2em;
-        }
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        .hero h2 {
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-        .hero p {
-            font-size: 1.1em;
-            opacity: 0.95;
-        }
-        .resources {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        .resource-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .resource-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-        .resource-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .resource-desc {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        .resource-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-        .resource-link:hover {
-            opacity: 0.9;
-        }
-        .workflow {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-        .workflow h2 {
-            color: #764ba2;
-            margin-bottom: 20px;
-        }
-        .workflow-step {
             display: flex;
             align-items: center;
-            margin: 15px 0;
-            padding: 15px;
-            background: white;
-            border-radius: 10px;
+            height: 70px;
         }
-        .step-num {
-            background: #667eea;
+        
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--cisco-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo::before {
+            content: "";
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--cisco-blue) 0%, var(--cisco-dark-blue) 100%);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: "📰";
+            position: absolute;
+            left: 55px;
+            font-size: 0.7em;
+        }
+        
+        .nav {
+            margin-left: auto;
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: var(--cisco-gray);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav a:hover {
+            color: var(--cisco-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--cisco-dark) 0%, var(--cisco-navy) 100%);
             color: white;
-            width: 35px;
-            height: 35px;
+            padding: 100px 40px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 strong {
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--cisco-blue);
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        
+        .section-title {
+            font-size: 2.2em;
+            font-weight: 300;
+            color: var(--cisco-dark);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title strong {
+            font-weight: 700;
+        }
+        
+        /* Resources Grid */
+        .resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .resource-card {
+            background: #ffffff;
+            border: 1px solid var(--cisco-border);
+            border-radius: 8px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resource-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--cisco-blue);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .resource-card:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .resource-icon {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .resource-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--cisco-dark);
+            margin-bottom: 15px;
+        }
+        
+        .resource-desc {
+            color: var(--cisco-gray);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--cisco-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+        
+        .resource-link::after {
+            content: " →";
+            margin-left: 5px;
+            transition: margin-left 0.2s;
+        }
+        
+        .resource-link:hover {
+            color: var(--cisco-dark-blue);
+        }
+        
+        .resource-link:hover::after {
+            margin-left: 10px;
+        }
+        
+        /* Workflow Section */
+        .workflow {
+            background: var(--cisco-light-gray);
+            padding: 80px 40px;
+            margin: 0 -40px;
+        }
+        
+        .workflow-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .workflow-step {
+            background: white;
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid var(--cisco-border);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            background: var(--cisco-blue);
+            color: white;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 1.1em;
         }
+        
+        .step-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--cisco-dark);
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+        
+        .step-desc {
+            color: var(--cisco-gray);
+            font-size: 0.95em;
+        }
+        
+        /* Tools Section */
+        .tools {
+            padding: 80px 0;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .tool-item {
+            padding: 30px;
+            border-left: 3px solid var(--cisco-blue);
+            background: #fafafa;
+        }
+        
+        .tool-name {
+            font-weight: 600;
+            color: var(--cisco-dark);
+            margin-bottom: 8px;
+        }
+        
+        .tool-analogy {
+            color: var(--cisco-blue);
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .tool-why {
+            color: var(--cisco-gray);
+            font-size: 0.9em;
+        }
+        
+        /* Footer */
         .footer {
+            background: var(--cisco-dark);
+            color: white;
+            padding: 60px 40px;
             text-align: center;
-            color: #999;
-            padding-top: 30px;
-            border-top: 2px solid #eee;
         }
-        .github-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #667eea;
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .footer-text {
+            opacity: 0.7;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .footer-links a {
+            color: var(--cisco-blue);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
         }
-        .github-link:hover {
+        
+        .footer-links a:hover {
             text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .nav {
+                display: none;
+            }
+            
+            .resources {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Cisco</div>
+            <nav class="nav">
+                <a href="#resources">Resources</a>
+                <a href="#workflow">Workflow</a>
+                <a href="#tools">Tools</a>
+                <a href="https://github.com/yeozhiyong/cisco-newsletter-automation">GitHub</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Newsletter <strong>Automation</strong></h1>
+            <p class="hero-subtitle">Automated weekly technical newsletter for Cisco Distribution Sales.<br>Save time, stay informed, deliver consistent quality.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">3-4hrs</div>
+                    <div class="stat-label">Time Saved Weekly</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10min</div>
+                    <div class="stat-label">Review Time</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Automated</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <div class="container">
-        <h1>📰 Cisco Newsletter Automation</h1>
-        <p class="subtitle">Weekly Technical Newsletter for Distribution Sales</p>
-        
-        <div class="hero">
-            <h2>Save 3-4 Hours Every Week</h2>
-            <p>Automated research, writing, and organization. You just review and distribute.</p>
-        </div>
-        
-        <div class="resources">
-            <div class="resource-card">
-                <div class="resource-icon">🎨</div>
-                <div class="resource-title">Visual Flow Diagram</div>
-                <div class="resource-desc">Interactive diagram showing the complete automation workflow with tool explanations.</div>
-                <a href="cisco-newsletter-diagram.html" class="resource-link">View Diagram</a>
-            </div>
+        <section id="resources">
+            <h2 class="section-title">Documentation <strong>Resources</strong></h2>
             
-            <div class="resource-card">
-                <div class="resource-icon">📄</div>
-                <div class="resource-title">PDF Version</div>
-                <div class="resource-desc">Print-friendly version with all key information. Click Print to save as PDF.</div>
-                <a href="cisco-newsletter-pdf.html" class="resource-link">View PDF</a>
+            <div class="resources">
+                <div class="resource-card">
+                    <div class="resource-icon">🎨</div>
+                    <div class="resource-title">Visual Flow Diagram</div>
+                    <div class="resource-desc">Interactive diagram showing the complete automation workflow with tool explanations and analogies.</div>
+                    <a href="cisco-newsletter-diagram.html" class="resource-link">View Diagram</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">📄</div>
+                    <div class="resource-title">PDF Version</div>
+                    <div class="resource-desc">Print-friendly version with all key information. Click Print to save as PDF.</div>
+                    <a href="cisco-newsletter-pdf.html" class="resource-link">View PDF</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🎯</div>
+                    <div class="resource-title">Presentation Slides</div>
+                    <div class="resource-desc">17 ready-to-use slides with speaker notes for PowerPoint or Google Slides.</div>
+                    <a href="cisco-newsletter-presentation.md" class="resource-link">View Slides</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">📚</div>
+                    <div class="resource-title">Full Documentation</div>
+                    <div class="resource-desc">Complete technical guide with detailed explanations of each component.</div>
+                    <a href="README.md" class="resource-link">View Docs</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">📋</div>
+                    <div class="resource-title">One-Page Summary</div>
+                    <div class="resource-desc">Quick reference guide with all key information in a scannable format.</div>
+                    <a href="cisco-newsletter-one-pager.md" class="resource-link">View Summary</a>
+                </div>
             </div>
-            
-            <div class="resource-card">
-                <div class="resource-icon">🎯</div>
-                <div class="resource-title">Presentation Slides</div>
-                <div class="resource-desc">17 ready-to-use slides with speaker notes for PowerPoint or Google Slides.</div>
-                <a href="cisco-newsletter-presentation.md" class="resource-link">View Slides</a>
-            </div>
-            
-            <div class="resource-card">
-                <div class="resource-icon">📚</div>
-                <div class="resource-title">Full Documentation</div>
-                <div class="resource-desc">Complete technical guide with detailed explanations of each component.</div>
-                <a href="README.md" class="resource-link">View Docs</a>
-            </div>
-            
-            <div class="resource-card">
-                <div class="resource-icon">📋</div>
-                <div class="resource-title">One-Page Summary</div>
-                <div class="resource-desc">Quick reference guide with all key information in a scannable format.</div>
-                <a href="cisco-newsletter-one-pager.md" class="resource-link">View Summary</a>
-            </div>
-        </div>
-        
-        <div class="workflow">
-            <h2>How It Works</h2>
-            <div class="workflow-step">
-                <div class="step-num">1</div>
-                <div><strong>Sunday 6 PM:</strong> Automation searches for latest Cisco news</div>
-            </div>
-            <div class="workflow-step">
-                <div class="step-num">2</div>
-                <div><strong>Sunday 6:10 PM:</strong> AI writes executive summaries</div>
-            </div>
-            <div class="workflow-step">
-                <div class="step-num">3</div>
-                <div><strong>Sunday 6:15 PM:</strong> Saved to Notion, Slack notification sent</div>
-            </div>
-            <div class="workflow-step">
-                <div class="step-num">4</div>
-                <div><strong>Monday 8 AM:</strong> You review (10 minutes)</div>
-            </div>
-            <div class="workflow-step">
-                <div class="step-num">5</div>
-                <div><strong>Monday 9 AM:</strong> You distribute to sales team</div>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <p>Created: March 30, 2026 | For: Cisco Distribution Sales Team</p>
-            <a href="https://github.com/yeozhiyong" class="github-link">View on GitHub</a>
-        </div>
+        </section>
     </div>
+    
+    <section id="workflow" class="workflow">
+        <div class="workflow-content">
+            <h2 class="section-title">How It <strong>Works</strong></h2>
+            
+            <div class="workflow-grid">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Sunday 6:00 PM — Trigger</div>
+                    <div class="step-desc">Automation wakes up and begins the weekly newsletter process.</div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Sunday 6:05 PM — Research</div>
+                    <div class="step-desc">Tavily searches for latest Cisco news across Security, Networking, and AI.</div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Sunday 6:10 PM — Writing</div>
+                    <div class="step-desc">Cupid AI drafts 2-3 executive summaries with 10-15 sentences each.</div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Sunday 6:15 PM — Save & Notify</div>
+                    <div class="step-desc">Newsletter saved to Notion, Slack notification sent to you.</div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-title">Monday 8:00 AM — Review</div>
+                    <div class="step-desc">You review the draft and make minor edits if needed (~10 minutes).</div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">6</div>
+                    <div class="step-title">Monday 9:00 AM — Distribute</div>
+                    <div class="step-desc">Send the final newsletter to Distribution Sales Team.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section id="tools" class="tools">
+            <h2 class="section-title">Automation <strong>Tools</strong></h2>
+            
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <div class="tool-name">Tavily</div>
+                    <div class="tool-analogy">"Research assistant"</div>
+                    <div class="tool-why">Finds latest Cisco news automatically from multiple sources.</div>
+                </div>
+                
+                <div class="tool-item">
+                    <div class="tool-name">Cupid (AI)</div>
+                    <div class="tool-analogy">"Technical writer"</div>
+                    <div class="tool-why">Writes executive summaries that understand Cisco context.</div>
+                </div>
+                
+                <div class="tool-item">
+                    <div class="tool-name">Notion</div>
+                    <div class="tool-analogy">"Filing cabinet"</div>
+                    <div class="tool-why">Keeps all newsletters organized and searchable.</div>
+                </div>
+                
+                <div class="tool-item">
+                    <div class="tool-name">Slack</div>
+                    <div class="tool-analogy">"Secretary"</div>
+                    <div class="tool-why">Instant notifications when draft is ready.</div>
+                </div>
+                
+                <div class="tool-item">
+                    <div class="tool-name">Cron Job</div>
+                    <div class="tool-analogy">"Alarm clock"</div>
+                    <div class="tool-why">Runs every Sunday at 6 PM automatically.</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-title">Cisco Newsletter Automation</div>
+            <p class="footer-text">Created: March 30, 2026 | For: Cisco Distribution Sales Team</p>
+            <div class="footer-links">
+                <a href="https://github.com/yeozhiyong/cisco-newsletter-automation">GitHub Repository</a>
+                <a href="https://yeozhiyong.github.io/cisco-newsletter-automation/">Live Site</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
